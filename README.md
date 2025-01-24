@@ -1,1 +1,1 @@
-# pythonando-investidores
+# Projeto para conectar insvestidores a empresas
