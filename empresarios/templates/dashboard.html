@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block 'body' %}
+
+    <br>
+    <br>
+    
+    <div class="container">
+        <p class="display-6">Propostas aceitas nos últimos 7 dias</p>
+        <br>
+        <canvas id="myChart"></canvas>
+    </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      <script>
+        const ctx = document.getElementById('myChart');
+
+        {% comment %} const labels = {{ labels|safe }};
+        const values = {{ values|safe }};
+        
+        console.log("Labels:", labels);
+        console.log("Values:", values); {% endcomment %}
+      
+      
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: {{ labels|safe }},
+            datasets: [{
+                label: 'Total de Propostas',
+                data: {{ values|safe }},
+                font: {
+                    weight: 'bold'
+                },
+                color: 'white',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          },
+
+          options: {
+            scales: {
+              x: {
+                ticks: {
+                  font: {
+                    weight: 'bold'
+                  },
+                  color: 'white'
+                }
+              },
+              y: {
+                ticks: {
+                  font: {
+                    weight: 'bold'
+                  },
+                  color: 'white'
+                },
+                beginAtZero: true
+              }
+            }
+          }
+
+        });
+      </script>
+
+
+
+{% endblock 'body' %}
